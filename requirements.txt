@@ -1,0 +1,10 @@
+click==7.0
+Flask==1.1.1
+Flask-RESTful==0.3.8
+itsdangerous==1.1.0
+Jinja2==2.11.1
+MarkupSafe==1.1.1
+Werkzeug==1.0.0
+opencensus==0.7.7
+opencensus-context==0.1.1
+opencensus-ext-azure==1.0.2
