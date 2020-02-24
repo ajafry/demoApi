@@ -23,20 +23,27 @@ tracer = Tracer(
 )
 
 def findEmployee(lastName):
+    print("### Entered findEmployee(lastName)")
     lowercaseLastName = lastName.lower()
     matchingEmployees = []
     for e in testData:
         if (e['LastName'].lower().startswith(lowercaseLastName)):
             matchingEmployees.append(e)
     logger.info(f'[findEmployee] found {len(matchingEmployees)} records')
+    with tracer.span(name="test") as span:
+        print(f'[Employees] returning all data, {len(testData)} records')
     return matchingEmployees
 
 class Employees(Resource):
+    print("### Entered Employees(lastName)")
     def get(self):
         logger.info(f'[Employees] returning all data, {len(testData)} records')
+        with tracer.span(name="test") as span:
+            print(f'[Employees] returning all data, {len(testData)} records')
         return jsonify(testData)
 
 class EmployeesByLastName(Resource):
+    print("### Entered EmployeesByLastName(lastName)")
     def get(self, lastName):
         employees = findEmployee(lastName)
         if (len(employees) == 0):
