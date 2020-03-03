@@ -13,12 +13,12 @@ app = Flask(__name__)
 api = Api(app)
 
 logger.addHandler(AzureLogHandler(
-    connection_string='InstrumentationKey=31e9c92e-6f6c-43fe-a167-d34249265162')
+    connection_string='InstrumentationKey=659960ad-5acf-477b-80b4-d1f0436a3783')
 )
 
 tracer = Tracer(
     exporter=AzureExporter(
-        connection_string='InstrumentationKey=31e9c92e-6f6c-43fe-a167-d34249265162'),
+        connection_string='InstrumentationKey=659960ad-5acf-477b-80b4-d1f0436a3783'),
     sampler=ProbabilitySampler(1.0),
 )
 
